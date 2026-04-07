@@ -1,25 +1,19 @@
 pipeline {
     agent any
+
     stages {
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                sh 'python calculator.py'
+                bat 'echo Build step on Windows'
             }
         }
+
         stage('Test') {
             steps {
-                echo 'Running tests...'
-                // Add test commands here if any
+                echo 'Testing the project...'
+                bat 'python calculator.py'
             }
-        }
-    }
-    post {
-        success {
-            echo 'Build Successful'
-        }
-        failure {
-            echo 'Build Failed'
         }
     }
 }
